@@ -15,22 +15,22 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-
 <%
 	String type = request.getParameter("type");
-	Date date = new Date();	
-	SimpleDateFormat sdf = null;
+	Date now = new Date();
+	SimpleDateFormat sdf;
 	
-	if (type.equals("time")) { // 시간
+	if (type.equals("time")) {
+		// 시간 출력
 		sdf = new SimpleDateFormat("현재 시간은 HH시 mm분 ss초 입니다.");
-	} else if (type.equals("date")) { // 날짜
+	} else {
+		// 날짜 출력
 		sdf = new SimpleDateFormat("오늘의 날짜는 yyyy년 MM월 dd일 입니다.");
 	}
 	String result = sdf.format(now);
 %>
-<div class="contaniner">
-	<div class="display-3"><%= result %></div>
-</div>
-
 </body>
+	<div class="container">
+		<div class="display-3"><%=result %></div>
+	</div>
 </html>
