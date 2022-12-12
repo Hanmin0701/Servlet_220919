@@ -77,12 +77,11 @@
 					<tbody>
 						<%
 							for(Map<String, Object> item : list) {
-								
 						%>
 						<tr>
 							<td><%= item.get("id") %></td>
 							<td><%= item.get("image") %></td>
-							<a herf=""><%= item.get("title") %></a>
+							<td><a herf=""><%= item.get("title") %></a></td>
 						</tr>
 						<%
 							}

@@ -11,15 +11,20 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
+	<%
+		String title = request.getParameter("title");
+		String author = request.getParameter("author");
+		String publisher = request.getParameter("publisher");
+	%>
 	<div class="container">
 		<div>
 			
 		</div>
 		
 		<div>
-			<h1><%= %></h1>
-			<h2><%= %></h2>
-			<h3><%= %></h3>
+			<h1><b><%= title%></b></h1>
+			<h2 class="text-info"><%= author%></h2>
+			<h3 class="text-secondary"><%= publisher%></h3>
 		</div>
 	</div>
 </body>
