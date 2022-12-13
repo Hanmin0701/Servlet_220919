@@ -1,7 +1,4 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Map"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.HashMap"%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -61,6 +58,7 @@
     };
     list.add(map);
 	%>
+	
 	<div class="container">
 		<h1 class="text-center">책 목록</h1><hr>
 		
@@ -75,14 +73,14 @@
 						</tr>
 					</thead>
 					<tbody>
-						<%
+						<%	
 							for(Map<String, Object> item : list) {
 						%>
-						<tr>
-							<td><%= item.get("id") %></td>
-							<td><%= item.get("image") %></td>
-							<td><a herf=""><%= item.get("title") %></a></td>
-						</tr>
+							<tr>
+								<td><%= item.get("id") %></td>
+								<td><img src="<%= item.get("image")%>" alert="표지" width="50"></td>
+								<td><a href="/lesson02/Quiz08_1.jsp?id="<%= item.get("id") %>"><%= item.get("title") %></a></td>
+							</tr>
 						<%
 							}
 						%>
