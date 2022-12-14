@@ -11,10 +11,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<style>
-		header {height:70px;}
-		menu {heiht:40px;}
-		.contents {height:700px;}
-		footer {height:50px;}
+		header {height:80px;}
+
+		a, a:hover {color:"#fff";}
+		section {min-height:500px;}
+		footer {height:30px;}
 	</style>
 </head>
 <body>
@@ -57,35 +58,20 @@
     map = new HashMap<String, String>() {{ put("ch", "121"); put("name", "KBSN 스포츠"); put("category", "스포츠"); } };
     list.add(map);
 	%>
-
-	<div id="wrap" class="bg-dark">
-		<jsp:include page="header.jsp"/>
-		
-		<jsp:include page="menu.jsp"/>
-		
-		<content class="contents bg-warning">
-			<table class="table text-center">
-				<thead>
-					<tr>
-						<th class="text-weight-bold">채널</th>
-						<th class="text-weight-bold">채널명</th>
-						<th class="text-weight-bold">카테고리</th>
-					</tr>			
-				</thead>
-				<tbody>
-				<%
-				
-				%>
-					<tr>
-						<td><%= %></td>
-						<td><%= %></td>
-						<td><%= %></td>
-					</tr>
-				</tbody>
-			</table>
-		</content>
-		
-		<jsp:include page="footer.jsp"/>
+	<%-- 태그만 가져가는 것이 제일 베스트이다 헷갈릴수 있기 때문이다. --%>
+	<div id="wrap" class="container">
+		<header class="d-flex justify-content-center align-items-center">
+			<jsp:include page="header.jsp"/>
+		</header>
+		<nav class="bg-danger d-flex justify-content-center align-items-center">
+			<jsp:include page="nav.jsp"/>
+		</nav>
+		<section class="contents">
+			<jsp:include page="content.jsp"/>
+		</section>
+		<footer class="d-flex justfy-content-center align-items-center">
+			<jsp:include page="footer.jsp"/>
+		</footer>
 	</div>
 </body>
 </html>

@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<footer class="bg-secondary text-center text-secondary">
-	<address>Copyright 2021.marondal All Rights Reserved.</address>
-</footer>
+
+<small class="text-center text-secondary">Copyright 2022.marondal All Rights Reserved.</small>
