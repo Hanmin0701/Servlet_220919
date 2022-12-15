@@ -1,6 +1,7 @@
-<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+
 <%
 // 아티스트 정보 
 
@@ -8,7 +9,7 @@ Map<String, Object> artistInfo = new HashMap<>();
 artistInfo.put("name", "아이유");
 artistInfo.put("debute", 2008);
 artistInfo.put("agency", "EDAM엔터테인먼트");
-artistInfo.put("photo", "http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/867/444/81867444_1616662460652_1_600x600.JPG");
+artistInfo.put("photo", "https://pbs.twimg.com/profile_images/1374979417915547648/vKspl9Et_400x400.jpg");
 
 // 아이유 노래 리스트 
 List<Map<String, Object>> musicList = new ArrayList<>();
@@ -52,7 +53,7 @@ musicInfo.put("title", "삐삐");
 musicInfo.put("album", "삐삐");
 musicInfo.put("singer", "아이유");
 musicInfo.put("thumbnail",
-		"https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/111/535/81111535_1539157728291_1_600x600.JPG");
+		"https://ww.namu.la/s/5ea8ba97baf8af3cc13f2972d9d23bcd17e19b8b8a96ce86d50c4bd03ad4df30321fc7e012738ad4b00c50642195ef7a68ff484ad760b15ff46bb1dc45ffb3fc399e4345c5d4dd2240820b59f3a573a57f84b8a6a2e4fb26ce5e81ad66d85f77debc979900275f6cf7a51386c8c39aa9");
 musicInfo.put("time", 194);
 musicInfo.put("composer", "이종훈");
 musicInfo.put("lyricist", "아이유");
@@ -64,7 +65,7 @@ musicInfo.put("title", "스물셋");
 musicInfo.put("album", "CHAT-SHIRE");
 musicInfo.put("singer", "아이유");
 musicInfo.put("thumbnail",
-		"https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/080/724/877/80724877_1445520704274_1_600x600.JPG");
+		"https://w.namu.la/s/4a817b8f4ec9caca4027a6991651a401d683a7691f1926bd60e59908f306d439f7cc251af5ef263a6f0a249e831d5d9cf641855bf590dadd86869ff941aad8dc236bc91bac89f84cff60c981d8d6c85f57a2ff4df00b5efe3bbc10e9745ce13571eda48f1912435423317450475d6ffe");
 musicInfo.put("time", 194);
 musicInfo.put("composer", "아이유,이종훈,이채규");
 musicInfo.put("lyricist", "아이유");
@@ -83,46 +84,41 @@ musicInfo.put("lyricist", "아이유");
 musicList.add(musicInfo);
 %>
 
-<%-- 가수 정보 --%>
-<div class="border border-success d-flex p-3">
-	<div class="mr-3">
-		<img src="<%=artistInfo.get("photo")%>" alt="가수 이미지" width="150px">
+<%-- 아티스트 정보 영역 --%>
+<div class="singer-info d-flex mt-4 border border-success p-3">
+	<div class="singer-photo mr-4">
+		<img src="<%=artistInfo.get("photo")%>" alt="가수 이미지" width="150">
 	</div>
-	<div>
-		<h3 class="font-weight-bold"><%=artistInfo.get("name")%></h3>
-		<br>
+	<div class="singer-info">
+		<h3><%=artistInfo.get("name")%></h3>
 		<div><%=artistInfo.get("agency")%></div>
-		<div><%=artistInfo.get("debute")%>
-			데뷔
-		</div>
+		<div><%=artistInfo.get("debute")%></div>
 	</div>
-</div>
-<%-- 곡 목록 --%>
-<div class="mt-3">
-	<h4 class="font-weight-bold">곡 목록</h4>
 </div>
 
-<table class="table text-center">
-	<thead class="d-flex font-weight-bold">
-		<tr>
-			<th>no</th>
-			<th>제목</th>
-			<th>앨범</th>
-		</tr>
-	</thead>
-	<tbody>
-		<%
-		for (Map<String, Object> item : musicList) {
-		%>
-		<tr>
-			<td><%=item.get("id")%></td>
-			<td><a
-				href="/lesson03/Quiz02/template.jsp?id=<%=item.get("id")%>"
-				class="text-decoration-none"></a><%=item.get("title")%></td>
-			<td><%=item.get("album")%></td>
-		</tr>
-		<%
-		}
-		%>
-	</tbody>
-</table>
+<%-- 곡 목록 영역 --%>
+<div class="music-list mt-3">
+	<h4>곡 목록</h4>
+	<table class="table text-center">
+		<thead>
+			<tr>
+				<th>no</th>
+				<th>제목</th>
+				<th>앨범</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%
+			for (Map<String, Object> info : musicList) {
+			%>
+			<tr>
+				<td><%=info.get("id")%></td>
+				<td><a href="info_template.jsp?id=<%=info.get("id")%>"><%=info.get("title")%></a></td>
+				<td><%=info.get("album")%></td>
+			</tr>
+			<%
+			}
+			%>
+		</tbody>
+	</table>
+</div>

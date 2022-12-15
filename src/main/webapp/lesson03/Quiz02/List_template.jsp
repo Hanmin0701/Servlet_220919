@@ -5,11 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Melong</title>
+<title>멜롱-아이유</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 	crossorigin="anonymous"></script>
@@ -21,46 +22,58 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
+
 <style>
-a:hover {text-decoration-none;
-	
+@charset "UTF-8";
+
+a {
+	text-decoration: none;
 }
 
-#
-wrap {
+a:hover {
+	text-decoration: none;
+}
+
+#wrap {
 	width: 1200px;
 	margin: auto;
 }
 
-height {
+header {
 	height: 100px;
+}
+
+header .logo {
+	width: 150px;
+}
+
+header .search {
+	width: 1050px;
+}
+
+header .search .search-bar {
+	width: 450px;
 }
 
 nav {
 	height: 40px;
 }
 
-section {
-	min-section: 500px;
-}
-
 footer {
-	height: 100px;
-}
-
-.input-group {
-	width: 500px;
+	height: 200px;
 }
 </style>
+
 </head>
 <body>
 	<%
 	// 아티스트 정보 
+
 	Map<String, Object> artistInfo = new HashMap<>();
 	artistInfo.put("name", "아이유");
 	artistInfo.put("debute", 2008);
 	artistInfo.put("agency", "EDAM엔터테인먼트");
-	artistInfo.put("photo", "http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/867/444/81867444_1616662460652_1_600x600.JPG");
+	artistInfo.put("photo", "https://pbs.twimg.com/profile_images/1374979417915547648/vKspl9Et_400x400.jpg");
 
 	// 아이유 노래 리스트 
 	List<Map<String, Object>> musicList = new ArrayList<>();
@@ -104,7 +117,7 @@ footer {
 	musicInfo.put("album", "삐삐");
 	musicInfo.put("singer", "아이유");
 	musicInfo.put("thumbnail",
-			"https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/111/535/81111535_1539157728291_1_600x600.JPG");
+			"https://ww.namu.la/s/5ea8ba97baf8af3cc13f2972d9d23bcd17e19b8b8a96ce86d50c4bd03ad4df30321fc7e012738ad4b00c50642195ef7a68ff484ad760b15ff46bb1dc45ffb3fc399e4345c5d4dd2240820b59f3a573a57f84b8a6a2e4fb26ce5e81ad66d85f77debc979900275f6cf7a51386c8c39aa9");
 	musicInfo.put("time", 194);
 	musicInfo.put("composer", "이종훈");
 	musicInfo.put("lyricist", "아이유");
@@ -116,7 +129,7 @@ footer {
 	musicInfo.put("album", "CHAT-SHIRE");
 	musicInfo.put("singer", "아이유");
 	musicInfo.put("thumbnail",
-			"https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/080/724/877/80724877_1445520704274_1_600x600.JPG");
+			"https://w.namu.la/s/4a817b8f4ec9caca4027a6991651a401d683a7691f1926bd60e59908f306d439f7cc251af5ef263a6f0a249e831d5d9cf641855bf590dadd86869ff941aad8dc236bc91bac89f84cff60c981d8d6c85f57a2ff4df00b5efe3bbc10e9745ce13571eda48f1912435423317450475d6ffe");
 	musicInfo.put("time", 194);
 	musicInfo.put("composer", "아이유,이종훈,이채규");
 	musicInfo.put("lyricist", "아이유");
@@ -134,27 +147,20 @@ footer {
 	musicInfo.put("lyricist", "아이유");
 	musicList.add(musicInfo);
 	%>
+	%>
 	<div id="wrap">
-		<%-- header --%>
-		<header class="d-flex">
-			<jsp:include page="header.jsp"/>
+		<header class="d-flex align-items-center">
+			<jsp:include page="header.jsp" />
 		</header>
-
-		<%-- menu --%>
-		<nav class="d-flex font-weight-bold justify-content-center align-items-center">
-			<jsp:include page="menu.jsp"/>
+		<nav>
+			<jsp:include page="menu.jsp" />
 		</nav>
-
-		<%-- content --%>
 		<section class="contents">
-			<jsp:include page="list.jsp"/>
+			<jsp:include page="list_content.jsp" />
 		</section>
-		
 		<hr>
-		
-		<%-- footer --%>
 		<footer>
-			<jsp:include page="footer.jsp"/>
+			<jsp:include page="footer.jsp" />
 		</footer>
 	</div>
 </body>
