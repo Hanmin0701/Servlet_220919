@@ -27,30 +27,31 @@ public class Quiz01 extends HttpServlet {
 		String insertQuery = "insert into `real_estate`"
 				+ "(`realtorId`,`address`,`area`,`type`,`price`,`rentPrice`)"
 				+ "values"
-				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', 1500000, NULL);";
+				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', 1500000, NULL)";
 		try {
 			ms.update(insertQuery);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		// DB select 
+		// DB select & 출력 
 		PrintWriter out = response.getWriter();
-		String selectQuery = "select * from `real_estate`;";
-		
+		String selectQuery = "select `address` ,`area`, `type`"
+				+ "from `real_estate`"
+				+ "order by `id`"
+				+ "desc limit 10;";
+
 		try {
-			ResultSet resultSet = ms.select(selectQuery);
-			while (resultSet.next()) {
-				out.println("realtorId");
-				out.println("address");
-				out.println("area");
-				out.println("type");
+			ResultSet rs = ms.select(selectQuery);
+			while(rs.next()) {
+				String address = rs.getString("address");
+				int area = rs.getInt("area");
+				String type = rs.getString("type");
+				out.println("매물 주소: " + address + ", 면적: " + area + ", 타입: " + type);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		// 결과 출력
 		
 		// DB 해제
 		ms.disconnect();

@@ -54,7 +54,6 @@ public class Ex01 extends HttpServlet {
 		
 		// 결과 출력
 		
-		
 		// DB 해제
 		ms.disconnect();
 		
