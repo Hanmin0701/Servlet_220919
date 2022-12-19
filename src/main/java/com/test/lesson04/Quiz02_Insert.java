@@ -28,11 +28,7 @@ public class Quiz02_Insert extends HttpServlet {
 		// site에 insert 쿼리
 		String insertQuery = "insert into `site`"
 				+ "(`id`, `name`,`url`, `createdAt`, `updatedAt`)"
-				+ "values\r\n"
-				+ "(1, '마론달', 'http://marondal.com', now(), now()),"
-				+ "(2, '구글', 'https://google.com', now(), now()),"
-				+ "(3, '네이버', 'https://naver.com', now(), now()),"
-				+ "(4, '다음', 'https://daum.com', now(), now());";
+				+ "values ('" + name + "', '" + url + "', now(),now());";
 		
 		try {
 			ms.update(insertQuery);
